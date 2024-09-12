@@ -35,11 +35,7 @@ class SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-            color: Colors.blue,
-            child: Image.asset('assets/images/flutter_logo.jpeg')),
-      ),
+      body: Center(child: Image.asset('assets/images/flutter_logo.png')),
     );
   }
 
