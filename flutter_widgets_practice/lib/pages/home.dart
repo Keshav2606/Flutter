@@ -1,54 +1,60 @@
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var selectedValue = "Python";
 
   @override
   Widget build(BuildContext context) {
-    var arrContainers = [
-      Container(
-        height: 200,
-        color: Colors.redAccent,
-      ),
-      Container(
-        height: 200,
-        color: Colors.blueAccent,
-      ),
-      Container(
-        height: 200,
-        color: Colors.greenAccent,
-      ),
-      Container(
-        height: 200,
-        color: Colors.yellowAccent,
-      ),
-      Container(
-        height: 200,
-        color: Colors.orangeAccent,
-      ),
-    ];
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Flutter ListView',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        backgroundColor: Colors.lightBlue,
+        title: const Text('Home Page'),
+        backgroundColor: Colors.green,
       ),
-      body: ListView.separated(
-        scrollDirection: Axis.vertical,
-        itemBuilder: (context, index) {
-          return Container(
-            child: arrContainers[index],
-          );
-        },
-        itemCount: arrContainers.length,
-        separatorBuilder: (context, index) {
-          return const SizedBox(
-            height: 12,
-          );
-        },
-      ),
+      body: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Which is your Favorite Programming Language?',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 21,
+              ),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 11, horizontal: 30),
+                color: Colors.white,
+                width: MediaQuery.of(context).size.width,
+                child: DropdownButton(
+                  value: selectedValue,
+                  isExpanded: true,
+                  onChanged: (String? newValue) {
+                    selectedValue = newValue!;
+
+                    setState(() {});
+                  },
+                  items: <String>["JavaScript", "Python", "C++", "Java", "C"]
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                        value: value, child: Text(value));
+                  }).toList(),
+                ),
+              ),
+            ],
+          )),
     );
   }
 }

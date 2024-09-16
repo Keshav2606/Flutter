@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'pages/home.dart';
+import 'package:flutter_widgets_practice/pages/bottom_nav.dart';
+// import 'pages/animated_text.dart';
+// import 'pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue)),
-      home: const MyHomePage(),
+      home: const BottomNavigation(),
     );
   }
 }
