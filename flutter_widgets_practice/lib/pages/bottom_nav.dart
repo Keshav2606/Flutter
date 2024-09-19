@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets_practice/pages/form.dart';
 import 'package:flutter_widgets_practice/pages/home.dart';
 import 'package:flutter_widgets_practice/pages/menu.dart';
 import 'package:flutter_widgets_practice/pages/profile.dart';
-import 'package:flutter_widgets_practice/pages/search.dart';
+// import 'package:flutter_widgets_practice/pages/search.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -30,7 +31,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         controller: pageController,
         children: const [
           HomePage(),
-          SearchPage(),
+          FormWidget(),
           ProfilePage(),
           MenuPage()
         ],
